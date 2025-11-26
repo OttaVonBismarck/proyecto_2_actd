@@ -1,0 +1,167 @@
+/* --------- RESET SUAVE --------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  color: #484848;
+}
+
+/* --------- CONTENEDOR PRINCIPAL --------- */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 12px 40px 12px;
+}
+
+/* --------- HEADER --------- */
+.header {
+  background: linear-gradient(135deg, #ff5a5f, #ff7e82);
+  color: white;
+  padding: 20px 22px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* --------- FILAS DE FILTROS --------- */
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-card {
+  flex: 1;
+  min-width: 260px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.filter-card label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #717171;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* --------- KPIs --------- */
+.kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 10px 0 22px 0;
+}
+
+.kpi-card {
+  flex: 1;
+  min-width: 220px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 12px 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #ff5a5f;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpi-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #717171;
+  letter-spacing: 0.05em;
+}
+
+.kpi-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* --------- GRÁFICAS --------- */
+.charts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: flex-start; /* <- NUEVO */
+}
+
+
+.chart-card {
+  flex: 1;
+  min-width: 380px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 12px 16px 4px 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.chart-title {
+  margin: 4px 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+}
+
+/* --------- CONTROLES DASH (Dropdowns, sliders) --------- */
+.Select-control,
+.Select-menu-outer {
+  border-radius: 10px !important;
+}
+
+.rc-slider-track {
+  background-color: #ff5a5f !important;
+}
+
+.rc-slider-handle {
+  border: solid 2px #ff5a5f !important;
+}
+
+.rc-slider-dot-active {
+  border-color: #ff5a5f !important;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 16px 10px 30px 10px;
+  }
+
+  .chart-card {
+    min-width: 100%;
+  }
+
+  .kpi-card {
+    min-width: 100%;
+  }
+}
