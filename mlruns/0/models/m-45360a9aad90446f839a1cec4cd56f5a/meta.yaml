@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/marti/Universidad/Decimo/Analitica/Proyecto%202/proyecto_2_actd/mlruns/0/models/m-45360a9aad90446f839a1cec4cd56f5a/artifacts
+creation_timestamp: 1764346403345
+experiment_id: '0'
+last_updated_timestamp: 1764346446921
+model_id: m-45360a9aad90446f839a1cec4cd56f5a
+model_type: null
+name: model
+source_run_id: b83b2aaead95487a9aa24700c1f2b17a
+status: 2
+status_message: null

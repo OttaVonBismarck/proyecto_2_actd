@@ -1,0 +1,12 @@
+variable,beta
+bedrooms_norm,0.07970067360395656
+accommodates_norm,0.06875240830228305
+beds_norm,-0.03858380051043683
+property_type_norm,0.025272289694920395
+room_type_norm,-0.013509474470656452
+latitude_norm,-0.006464419171461333
+longitude_norm,0.002784873622848918
+instant_bookable_numeric_norm,0.0025890953663989316
+host_response_rate_norm,-0.001536200110327947
+host_acceptance_rate_norm,0.00023422471861837043
+neighbourhood_cleansed_norm,-5.1966627445162745e-05

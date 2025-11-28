@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/marti/Universidad/Decimo/Analitica/Proyecto%202/proyecto_2_actd/mlruns/0/b83b2aaead95487a9aa24700c1f2b17a/artifacts
+end_time: 1764346446957
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b83b2aaead95487a9aa24700c1f2b17a
+run_name: Mlflow_modelo_Airbnb_pred
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764346403204
+status: 3
+tags: []
+user_id: marti
