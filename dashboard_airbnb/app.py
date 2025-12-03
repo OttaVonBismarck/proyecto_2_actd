@@ -31,7 +31,20 @@ BETAS_PATH = Path(__file__).parent / "data" / "betas_regresion.csv"
 betas_df = pd.read_csv(BETAS_PATH)
 
 CLASS_MODEL_PATH = Path(__file__).parent / "data" / "recommend_model.keras"
-recommend_model = keras.models.load_model(CLASS_MODEL_PATH)
+recommend_model = None
+
+def load_recommend_model():
+    """Carga perezosa del modelo de recomendación."""
+    global recommend_model
+    if recommend_model is None:
+        try:
+            recommend_model = keras.models.load_model(CLASS_MODEL_PATH)
+            print("Modelo de recomendación cargado correctamente.")
+        except Exception as e:
+            print("Error cargando modelo de recomendación:", e)
+            recommend_model = None
+    return recommend_model
+
 
 betas_df["abs_beta"] = betas_df["beta"].abs()
 betas_df = betas_df.sort_values("abs_beta", ascending=False)
@@ -83,7 +96,20 @@ neighbourhoods = sorted(df["neighbourhood_cleansed"].dropna().unique())
 room_types = sorted(df["room_type"].dropna().unique())
 
 MODEL_PATH = Path(__file__).parent / "data" / "price_model.keras"
-price_model = keras.models.load_model(MODEL_PATH)
+price_model = None
+
+def load_price_model():
+    """Carga perezosa del modelo de precio."""
+    global price_model
+    if price_model is None:
+        try:
+            price_model = keras.models.load_model(MODEL_PATH)
+            print("Modelo de precio cargado correctamente.")
+        except Exception as e:
+            print("Error cargando modelo de precio:", e)
+            price_model = None
+    return price_model
+
 
 def infer_rating(neigh, room_type, accommodates):
     dff = df.copy()
@@ -694,13 +720,24 @@ def predict_price(
         "room_type": tf.constant([room_type], dtype=tf.string),
     }
 
-    pred_price = float(price_model.predict(X_dict, verbose=0)[0][0])
-    price_text = f"${pred_price:,.0f}".replace(",", ".")
+    # Modelo de precio
+    model_p = load_price_model()
+    if model_p is None:
+        price_text = "Modelo no disponible"
+    else:
+        pred_price = float(model_p.predict(X_dict, verbose=0)[0][0])
+        price_text = f"${pred_price:,.0f}".replace(",", ".")
 
-    prob_rec = float(recommend_model.predict(X_dict, verbose=0)[0][0])
-    prob_text = f"{prob_rec * 100:.1f}%"
+    # Modelo de recomendación
+    model_r = load_recommend_model()
+    if model_r is None:
+        prob_text = "Modelo no disponible"
+    else:
+        prob_rec = float(model_r.predict(X_dict, verbose=0)[0][0])
+        prob_text = f"{prob_rec * 100:.1f}%"
 
     return price_text, prob_text
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port=8050)
