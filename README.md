@@ -1,13 +1,25 @@
-1. Desde la carpeta raíz del proyecto (donde está el Dockerfile):
+1. Subir los archivos a la máquina virtual con
+
+scp -i ruta/a/tu_llave.pem -r dashboard_airbnb ubuntu@IP_PUBLICA:/home/ubuntu/
+
+2. Contectarse con SSH
+
+   ssh -i ruta/a/tu_llave.pem ubuntu@IP_PUBLICA
+
+3. Ingresar a la carpeta
+
+   cd dashboard_airbnb
+   
+4. Desde la carpeta raíz del proyecto (donde está el Dockerfile):
 
 docker build -t airbnb-dash .
 
-2. Ejecutar el contenedor
+5. Ejecutar el contenedor
 
 docker run -d --name airbnb-app -p 8050:8050 airbnb-dash
 
 
-3. El tablero quedará disponible en:
+6. El tablero quedará disponible en:
 
 http://localhost:8050
 
