@@ -3,6 +3,7 @@
 docker build -t airbnb-dash .
 
 2. Ejecutar el contenedor
+
 docker run -d --name airbnb-app -p 8050:8050 airbnb-dash
 
 
